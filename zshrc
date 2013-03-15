@@ -59,19 +59,28 @@ setopt COMPLETE_IN_WORD
 
 #{{{ Aliases
 
-alias ssh_server='ssh pwner@durknation.gotdns.com -p69'
+alias ssh_server='ssh pwner@192.168.1.222'
 alias ssh_router='ssh admin@router'
-alias ssh_home='ssh user@bear24rw.gotdns.com -p 44'
-alias ssh_ucfilespace='ssh thrunml@ucfilespace.uc.edu'
-alias ssh_uceng='ssh thrunml@virtulab.ceas1.uc.edu '
+alias ssh_ucfilespace='ssh winslomb@ucfilespace.uc.edu'
+alias ssh_uceng='ssh winslomb@virtulab.ceas1.uc.edu '
 alias ssh_tv='ssh media@durknation.gotdns.com -p337'
-alias ssh_desktop='ssh user@bear24rw.com -p44'
+alias server='192.168.1.222'
+alias media='192.168.1.122'
 
-alias mount_server='sshfs -p69 -o reconnect -o follow_symlinks pwner@durknation.gotdns.com:/ ~/mnt/server'
-alias mount_home='sshfs -p44 -o reconnect -o follow_symlinks user@bear24rw.gotdns.com:/ ~/mnt/backup'
-alias mount_desktop='sshfs -p44 -o reconnect -o follow_symlinks user@bear24rw.com:/ ~/mnt/desktop'
-alias mount_ucfilespace='sshfs -o reconnect -o follow_symlinks thrunml@ucfilespace.uc.edu:/Network/Servers/ucfilespace.uc.edu/Home/t/thrunml/ ~/mnt/ucfilespace'
-alias mount_uceng='sshfs -o reconnect -o follow_symlinks thrunml@virtulab.ceas1.uc.edu:/home/thrunml/ ~/mnt/uceng'
+alias matlab='wmname LG3D && /usr/local/MATLAB/R2010b/bin/matlab'
+alias eye3d='eyeD3 --fs-encoding=utf8 --rename="%A - %t" ./*'
+
+#alias scpp='scp $1 pwner@192.168.1.222:/mnt/drive_1/torrents/watch/'
+function scpp () { 
+	scp $1 pwner@192.168.1.222:/mnt/drive_1/uploads/ 
+}
+
+alias mount_server='sshfs -o reconnect -o follow_symlinks pwner@192.168.1.222:/ ~/Desktop/mnt/server && sshfs -o reconnect -o follow_symlinks pwner@192.168.1.222:/mnt/drive_1/music/ /media/rosewill/music/server_music/'
+
+#alias mount_server='sshfs -p69 -o reconnect -o follow_symlinks pwner@durknation.gotdns.com:/ ~/Desktop/mnt/server/'
+alias mount_school='sshfs -o reconnect -o follow_symlinks winslomb@virtulab.ceas1.uc.edu:/ ~/Desktop/mnt/school'
+
+alias matt="terminator -x alsamixer & terminator -x ncmpcpp & terminator -x htop &"
 
 alias ls='ls --group-directories-first --color=auto -X -h --classify'
 alias ll='ls -l'
